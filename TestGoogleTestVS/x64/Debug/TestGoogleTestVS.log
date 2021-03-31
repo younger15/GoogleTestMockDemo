@@ -1,0 +1,10 @@
+﻿  FishBet.cpp
+d:\hw\systeminfo\googletestmockdemo\testgoogletestvs\fishbet.cpp(3): error C2084: 函式 'FishBet::FishBet(void)' 的主體已經被宣告了
+  d:\hw\systeminfo\googletestmockdemo\testgoogletestvs\fishbet.h(5): note: 請參閱 '{ctor}' 之前的定義
+d:\hw\systeminfo\googletestmockdemo\testgoogletestvs\fishbet.cpp(8): error C2084: 函式 'FishBet::FishBet(BetWinProbability *)' 的主體已經被宣告了
+  d:\hw\systeminfo\googletestmockdemo\testgoogletestvs\fishbet.h(6): note: 請參閱 '{ctor}' 之前的定義
+d:\hw\systeminfo\googletestmockdemo\testgoogletestvs\fishbet.cpp(12): error C2084: 函式 'bool FishBet::BetFish(int)' 的主體已經被宣告了
+  d:\hw\systeminfo\googletestmockdemo\testgoogletestvs\fishbet.h(7): note: 請參閱 'BetFish' 之前的定義
+  TestGoogleTestVS.cpp
+d:\hw\systeminfo\googletestmockdemo\testgoogletestvs\testgoogletestvs.cpp(3): fatal error C1083: 無法開啟包含檔案: 'gtest/gtest.h': No such file or directory
+  正在產生程式碼...

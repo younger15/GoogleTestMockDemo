@@ -2,7 +2,5 @@
 class BetWinProbability {
 
 public:
-	BetWinProbability() {};
-	virtual bool IfWin(int betLevel) {};
-	~BetWinProbability() {};
+	virtual bool IfWin(int betLevel) = 0;
 };

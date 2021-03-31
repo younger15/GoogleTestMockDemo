@@ -2,7 +2,7 @@
 
 FishBet::FishBet() {
 
-	this->checkWin = new BetWinProbability();
+	//this->checkWin = new BetWinProbability();
 }
 
 FishBet::FishBet(BetWinProbability* p) {

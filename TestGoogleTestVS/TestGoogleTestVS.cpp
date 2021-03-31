@@ -4,6 +4,7 @@
 #include "Header.h"//include need test header file
 #include "TestClass.h"
 #include "./FishBet.h"
+#include "gmock/gmock.h"//using google mock
 
 /*TEST(StringToInt, PositiveTest)
 {
@@ -60,8 +61,13 @@ TEST_F(TmpTest, test1)
 
 class MockBetWinProbability : public BetWinProbability {
 public:
-	MockMethod01(IfWin, int(int));
+	MOCK_METHOD1(IfWin, bool(int b));
 };
+
+TEST(TESTMOCK, BetFish) {
+	MockBetWinProbability m;
+	EXPECT_CALL(m, IfWin(1));
+}
 
 int main(int argc, char** argv)
 {
