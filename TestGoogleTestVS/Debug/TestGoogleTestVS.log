@@ -1,5 +1,2 @@
-﻿  FishBet.cpp
-  TestGoogleTestVS.cpp
-  正在產生程式碼...
-gtestd.lib(gtest-all.obj) : warning LNK4099: 找不到 PDB 'gtestd.pdb' (有 'gtestd.lib(gtest-all.obj)' 或位於 'D:\HW\systemInfo\GoogleTestMockDemo\Debug\gtestd.pdb')，當做沒有偵錯資訊，連結物件
+﻿  TestGoogleTestVS.cpp
   TestGoogleTestVS.vcxproj -> D:\HW\systemInfo\GoogleTestMockDemo\Debug\TestGoogleTestVS.exe

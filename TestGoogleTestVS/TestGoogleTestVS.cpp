@@ -1,6 +1,6 @@
 ﻿
 #include <iostream>
-#include "gtest/gtest.h"//using google test
+//#include "gtest/gtest.h"//using google test
 #include "Header.h"//include need test header file
 #include "TestClass.h"
 #include "./FishBet.h"
@@ -62,16 +62,50 @@ TEST_F(TmpTest, test1)
 class MockBetWinProbability : public BetWinProbability {
 public:
 	MOCK_METHOD1(IfWin, bool(int b));
+	//MOCK_METHOD(bool, IfWin, (int b), (override));
 };
 
-TEST(TESTMOCK, BetFish) {
+/*TEST(TESTMOCK, BetFish) {
 	MockBetWinProbability m;
-	EXPECT_CALL(m, IfWin(1));
+	EXPECT_CALL(m, IfWin(2)).Times(::testing::AtLeast(1)).WillOnce(::testing::Return(true));
+	//ON_CALL(m, IfWin(2)).WillByDefault(::testing::Return(true));
+	FishBet bets(&m);
+	EXPECT_TRUE(bets.BetFish(2));
+}*/
+
+MATCHER(IsTen, "value must be 10") {
+
+	if (arg == 10) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+MATCHER_P(IsNotSpecificValue, n, "") {
+
+	if (arg != n) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+
+
+TEST(TESTMOCK, Matcher) {
+	MockBetWinProbability m;
+	EXPECT_CALL(m, IfWin(IsTen())).WillOnce(::testing::Return(true));
+	FishBet bets(&m);
+	EXPECT_TRUE(bets.BetFish(1));
 }
 
 int main(int argc, char** argv)
 {
-	testing::InitGoogleTest(&argc, argv);
+	//testing::InitGoogleTest(&argc, argv);
+	testing::InitGoogleMock(&argc, argv);
 	RUN_ALL_TESTS();
 	system("pause");
 }
