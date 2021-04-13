@@ -24,23 +24,28 @@ TEST(StringToInt, OutOfTypeRangeTest)
 	ASSERT_EQ(-10000000000000, StringToInt("-10000000000000"));
 }*/
 
-/*class TmpTest : public ::testing::Test{
+class TmpTest : public ::testing::Test{
 public:
 	TmpTest() {};
 	void SetUp() override{
-		TestClass t;
+
+		tmpClass.a.push_back(new int(1));
 	};
 	void TearDown() override {
-		TestClass t;
+
 	};
 	~TmpTest() {};
-	std::vector<TestClass> tmpClass;
+	TestClass tmpClass;
 };
 
 TEST_F(TmpTest, test1)
 {
-	EXPECT_EQ(0, tmpClass.size());
-}*/
+	EXPECT_EQ(1, tmpClass.a.size());
+	tmpClass.RemoveElement(0);
+	EXPECT_EQ(0, tmpClass.a.size());
+
+}
+
 
 /*TEST(Exception, test1)
 {
@@ -61,16 +66,18 @@ TEST_F(TmpTest, test1)
 
 class MockBetWinProbability : public BetWinProbability {
 public:
-	MOCK_METHOD1(IfWin, bool(int b));
-	//MOCK_METHOD(bool, IfWin, (int b), (override));
+	//MOCK_METHOD1(IfWin, bool(int b));
+	MOCK_METHOD(bool, IfWin, (int b), (override));
 };
 
 /*TEST(TESTMOCK, BetFish) {
 	MockBetWinProbability m;
-	EXPECT_CALL(m, IfWin(2)).Times(::testing::AtLeast(1)).WillOnce(::testing::Return(true));
+	//EXPECT_CALL(m, IfWin(2)).Times(::testing::AtLeast(1)).WillOnce(::testing::Return(true));
+	EXPECT_CALL(m, IfWin(2)).Times(::testing::AtLeast(1)).WillRepeatedly(::testing::Return(true));
 	//ON_CALL(m, IfWin(2)).WillByDefault(::testing::Return(true));
 	FishBet bets(&m);
-	EXPECT_TRUE(bets.BetFish(2));
+	//EXPECT_TRUE(bets.BetFish(2));
+	//EXPECT_TRUE(bets.BetFish(2));
 }*/
 
 MATCHER(IsTen, "value must be 10") {
@@ -95,18 +102,17 @@ MATCHER_P(IsNotSpecificValue, n, "") {
 
 
 
-TEST(TESTMOCK, Matcher) {
+/*TEST(TESTMOCK, Matcher) {
 	MockBetWinProbability m;
-	EXPECT_CALL(m, IfWin(IsTen())).WillOnce(::testing::Return(true));
+	EXPECT_CALL(m, IfWin).WillOnce(::testing::Return(true));
 	FishBet bets(&m);
 	EXPECT_TRUE(bets.BetFish(1));
-}
+}*/
 
 int main(int argc, char** argv)
 {
 	//testing::InitGoogleTest(&argc, argv);
 	testing::InitGoogleMock(&argc, argv);
 	RUN_ALL_TESTS();
-	system("pause");
 }
 
